@@ -1,0 +1,23 @@
+spring:
+  application: 
+    name: myfirstapp
+  datasource:
+    username: root
+    password: pass
+    url: jdbc:mysql://localhost:3306/Camunda
+  jpa: 
+    generate_ddl: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+
+
+
+
