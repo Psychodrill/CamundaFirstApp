@@ -36,7 +36,7 @@ public class RequestToCatNinja implements JavaDelegate{
         JsonNode root = mapper.readTree(response.getBody());
         JsonNode fact = root.path("fact");
 
-        execution.setVariable("catNinjaresponse",fact.asText());
+        execution.setVariable("catNinjaresponse",fact.asText().replace(' ', '_'));
 
     }
 

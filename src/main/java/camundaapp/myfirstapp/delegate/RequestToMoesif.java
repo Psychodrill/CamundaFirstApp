@@ -35,7 +35,7 @@ public class RequestToMoesif implements JavaDelegate{
         //RestTemplate restTemplate = new RestTemplate();
         String resourceUrl = "https://textoverimage.moesif.com/image";
         //ResponseEntity<String> response  = restTemplate.getForEntity(resourceUrl + "?image_url=" + loremPicsumResponse+"&text="+catNinjaResponse+"&text_color=3c3a45ff&margin=150", String.class);
-        execution.setVariable("resultLink",resourceUrl + "?image_url=" + loremPicsumResponse+"&text="+catNinjaResponse+"&text_color=3c3a45ff&margin=150");
+        execution.setVariable("resultLink",resourceUrl + "?image_url=" + loremPicsumResponse+"&text="+catNinjaResponse+"&text_color=#09eca4ff&margin=800");
         // File file = restTemplate.execute(resourceUrl + "?image_url=" + loremPicsumResponse+"&text="+catNinjaResponse+"&text_color=3c3a45ff&margin=150", HttpMethod.GET, null, clientHttpResponse -> {
         //     File ret = File.createTempFile("download", "tmp");
         //     StreamUtils.copy(clientHttpResponse.getBody(), new FileOutputStream(ret));
