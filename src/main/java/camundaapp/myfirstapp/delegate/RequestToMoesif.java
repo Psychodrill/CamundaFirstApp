@@ -23,10 +23,7 @@ public class RequestToMoesif implements JavaDelegate{
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'execute'");
-        // System.out.println("from moesif");
-        // System.out.println(execution.getVariableNames());
+
         System.out.println(execution.getVariable("catNinjaresponse"));
         System.out.println(execution.getVariable("loremPicsumResponse"));
         String catNinjaResponse = (String)execution.getVariable("catNinjaresponse");
@@ -34,20 +31,15 @@ public class RequestToMoesif implements JavaDelegate{
 
         //RestTemplate restTemplate = new RestTemplate();
         String resourceUrl = "https://textoverimage.moesif.com/image";
+        System.out.println(resourceUrl + "?image_url=" + loremPicsumResponse+"&text="+catNinjaResponse+"&text_color=09eca4ff&margin=200");
         //ResponseEntity<String> response  = restTemplate.getForEntity(resourceUrl + "?image_url=" + loremPicsumResponse+"&text="+catNinjaResponse+"&text_color=3c3a45ff&margin=150", String.class);
-        execution.setVariable("resultLink",resourceUrl + "?image_url=" + loremPicsumResponse+"&text="+catNinjaResponse+"&text_color=#09eca4ff&margin=800");
+        execution.setVariable("resultLink",resourceUrl + "?image_url=" + loremPicsumResponse+"&text="+catNinjaResponse+"&text_color=09eca4ff&margin=200");
         // File file = restTemplate.execute(resourceUrl + "?image_url=" + loremPicsumResponse+"&text="+catNinjaResponse+"&text_color=3c3a45ff&margin=150", HttpMethod.GET, null, clientHttpResponse -> {
         //     File ret = File.createTempFile("download", "tmp");
         //     StreamUtils.copy(clientHttpResponse.getBody(), new FileOutputStream(ret));
         //     return ret;
         // });
 
-        //System.out.println(response.getBody());
-        // ObjectMapper mapper = new ObjectMapper();
-        // JsonNode root = mapper.readTree(response.getBody());
-        // JsonNode fact = root.path("fact");
-
-        // execution.setVariable("catNinjaresponse",fact.asText());
 
 
     }

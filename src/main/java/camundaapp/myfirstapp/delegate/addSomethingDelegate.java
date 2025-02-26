@@ -10,9 +10,8 @@ public class addSomethingDelegate implements JavaDelegate{
 
     @Override
     public void execute(DelegateExecution arg0) throws Exception {
-        // TODO Auto-generated method stub
-        
-        //throw new UnsupportedOperationException("Unimplemented method 'execute'");
+
+        System.out.println("Hello dude!");
     }
 
 }

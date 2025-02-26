@@ -7,7 +7,6 @@ import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,16 +20,18 @@ public class RequestToLoremPicsum implements JavaDelegate {
         //String loremPicsumResponse= "999";
         Integer id = new Random().nextInt(1000);
         RestTemplate restTemplate = new RestTemplate();
-      //String resourceUrl = "https://picsum.photos/900/600";
+
       String resourceUrl = "https://picsum.photos/id/"+id+"/info";
       ResponseEntity<String> response  = restTemplate.getForEntity(resourceUrl, String.class);
       System.out.println(response.getBody());
       ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree(response.getBody());
-        JsonNode download_url = root.path("download_url");
+      JsonNode root = mapper.readTree(response.getBody());
+      JsonNode download_url = root.path("download_url");
+      JsonNode width = root.path("width");
+      JsonNode height = root.path("height");
+      String result =download_url.asText().replace(width.asText(), "1800").replace(height.asText(), "1200");
 
-
-        execution.setVariable("loremPicsumResponse",download_url.asText());
+      execution.setVariable("loremPicsumResponse",result);
     }
 
 }

@@ -17,6 +17,5 @@ logging:
     org:
       springframework:
         web: DEBUG
-credentials:
-  username: "strauszloy23062020@gmail.com"
-  password: "zloystraus"
+server:
+  port: 8082
